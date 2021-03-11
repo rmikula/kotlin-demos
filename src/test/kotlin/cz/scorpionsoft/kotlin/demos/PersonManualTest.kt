@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 
 
-internal class PersonTest {
+internal class PersonManualTest {
 
     @BeforeEach
     fun setUp() {
