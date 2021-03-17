@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
+import java.beans.Expression
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZonedDateTime
@@ -113,4 +114,27 @@ internal class FunctionsManualTest {
         println("Result $res")
     }
 
+    class IntTransformer : (Int) -> Int {
+        override fun invoke(p1: Int): Int {
+            return p1
+        }
+    }
+
+
+    @Test
+    fun testIntTransformer() {
+
+        val sum = { x: Int, y: Int -> x + y }
+
+        val res2 = sum(20, 30)
+        println(res2)
+
+        val intFunction: (Int) -> Int = IntTransformer()
+
+        var res = intFunction(30)
+        println(res)
+
+        res = intFunction.invoke(41)
+        println(res)
+    }
 }
