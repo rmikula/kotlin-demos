@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin","kotlin-reflect")
+    implementation("org.jetbrains.kotlin", "kotlin-reflect")
     testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.7.1")
     testImplementation("org.junit.jupiter", "junit-jupiter-params", "5.7.1")
     // testRuntimeOnly("org.junit.jupiter", "junit-jupiter-api", "5.7.1")
@@ -39,3 +39,6 @@ tasks.test {
     exclude("**/*ManualTest.class")
 }
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions.useIR = true
+}
